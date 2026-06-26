@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran Mahasiswa Baru</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.min.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/scriptCss.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <h2 id="judul">Pendaftaran Mahasiswa Baru</h2>
+        <p class="subtitle">Universitas Padjajaran</p>
+        
+        <form id="formDaftar" novalidate>
+            <div class="form-group">
+                <label for="nim">NIM (Nomor Induk Mahasiswa)</label>
+                <input type="text" id="nim" name="nim" placeholder="Masukkan minimal 8 digit NIM...">
+            </div>
+
+            <div class="form-group">
+                <label for="nama">Nama Lengkap</label>
+                <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap...">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Anda</label>
+                <input type="email" id="email" name="email" placeholder="contoh@mahasiswa.ac.id">
+            </div>
+
+            <div class="form-group">
+                <label for="nohp">Nomor HP</label>
+                <input type="text" id="nohp" name="nohp" placeholder="Contoh: 081234567890">
+            </div>
+
+            <div class="form-group">
+                <label>Jenis Kelamin</label>
+                <div class="radio-group">
+                    <label class="radio-label"><input type="radio" name="jk" value="Laki-laki"> Laki-laki</label>
+                    <label class="radio-label"><input type="radio" name="jk" value="Perempuan"> Perempuan</label>
+                </div>
+                <div id="errorJkPlace"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="prodi">Program Studi</label>
+                <select id="prodi" name="prodi">
+                    <option value="">-- Pilih Program Studi --</option>
+                    <option value="Manajemen Informatika">Manajemen Informatika</option>
+                    <option value="Komputer Administrasi Bisnis">Komputer Administrasi Bisnis</option>
+                    <option value="Komputer Akuntansi">Komputer Akuntansi</option>
+                    <option value="Teknik Informatika">Teknik Informatika</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="alamat">Alamat Lengkap</label>
+                <textarea id="alamat" name="alamat" rows="3" placeholder="Masukkan alamat lengkap rumah tinggal..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Pas Foto (3x4, JPG/PNG, maks. 2MB)</label>
+                <div class="upload-wrapper">
+                    <div class="file-input-container">
+                        <input type="file" id="foto" name="foto">
+                    </div>
+                    <div id="box" class="preview-container">
+                        <img id="imgPreview" src="" alt="Pratinjau Foto" style="display: none;">
+                        <div id="placeholderPreview" class="placeholder-icon">📷</div>
+                    </div>
+                </div>
+                <div id="errorFotoPlace"></div>
+            </div>
+
+            <div class="action-buttons">
+                <button type="submit" id="btn">Daftar Sekarang</button>
+                <button type="button" id="btnReset">Clear Data</button>
+            </div>
+            <span id="info"></span>
+        </form>
+        
+        <div id="cardRingkasan" class="result-card" style="display: none;">
+            <div id="printableArea">
+                <div class="card-header">
+                    <h3>✨ Kartu Hasil Pendaftaran</h3>
+                    <p class="card-sub-header">Universitas Padjajaran • TA 2026/2027</p>
+                </div>
+                <div class="card-body">
+                    <div class="card-photo-wrapper">
+                        <div id="boxResult">
+                            <img id="imgResult" src="" alt="Foto Mahasiswa">
+                        </div>
+                    </div>
+                    <div class="card-info-details">
+                        <div class="info-row">
+                            <span class="info-label">NIM</span>
+                            <span class="info-colon">:</span>
+                            <span class="info-value" id="resNim"></span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Nama Lengkap</span>
+                            <span class="info-colon">:</span>
+                            <span class="info-value" id="resNama"></span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Email</span>
+                            <span class="info-colon">:</span>
+                            <span class="info-value" id="resEmail"></span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Nomor HP</span>
+                            <span class="info-colon">:</span>
+                            <span class="info-value" id="resNohp"></span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Jenis Kelamin</span>
+                            <span class="info-colon">:</span>
+                            <span class="info-value" id="resJk"></span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Prodi</span>
+                            <span class="info-colon">:</span>
+                            <span class="info-value" id="resProdi"></span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Alamat</span>
+                            <span class="info-colon">:</span>
+                            <span class="info-value" id="resAlamat"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-buttons">
+                <button id="btnCetak" type="button">🖨️ Cetak / Unduh PDF</button>
+                <button id="btnEdit" type="button">📝 Edit Data Kembali</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
