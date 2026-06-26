@@ -1,0 +1,319 @@
+/* ==========================================================================
+   1. IMPORT FONT ESTETIS & MODERN
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    /* Latar belakang gradasi Lilac ke Putih Susu */
+    background: linear-gradient(135deg, #E8E5F8, #F3F0FC);
+    color: #4A4458; /* Ungu gelap ultra-soft untuk teks agar nyaman dibaca */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.form-container {
+    /* Kombinasi background putih dengan bias warna Lilac super lembut */
+    background: linear-gradient(135deg, #FBF9FF, #FFFFFF);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(138, 115, 201, 0.08);
+    max-width: 600px;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+#judul {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: #8A73C9; /* Warna Lilac Utama yang Tegas */
+    margin: 0 0 6px 0;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: #A696CD; /* Lilac agak muda untuk subtitle */
+    margin: 0 0 30px 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #72629B; /* Label warna ungu medium */
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #E3DCF5; /* Border standard warna lilac soft */
+    border-radius: 12px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #FAF8FF;
+    font-family: inherit;
+    color: #4A4458;
+    transition: all 0.25s ease-in-out;
+}
+
+/* Kustomisasi Tombol Pilih File (Upload) */
+input[type="file"]::file-selector-button {
+    border: 1px solid #E3DCF5;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #72629B;
+    font-weight: 600;
+    font-size: 12px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #FAF8FF;
+    border-color: #8A73C9;
+}
+
+.radio-group {
+    display: flex;
+    gap: 24px;
+    padding: 5px 0;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #72629B;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   2. EFEK HOVER & FOCUS DENGAN SENTUHAN GLOW LILAC
+   ========================================================================== */
+.form-container input[type="text"]:hover,
+.form-container input[type="email"]:hover,
+.form-container select:hover,
+.form-container textarea:hover,
+#box:hover {
+    border-color: #BDB2FF !important; /* Ungu pastel cerah saat kursor di atasnya */
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(189, 178, 255, 0.25) !important;
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="email"]:focus,
+.form-container select:focus,
+.form-container textarea:focus {
+    border-color: #8A73C9 !important; /* Lilac tegas saat fokus aktif */
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(138, 115, 201, 0.3) !important;
+    outline: none;
+}
+
+.upload-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.file-input-container {
+    flex: 1;
+}
+
+/* Kotak Upload Pasfoto */
+#box, #boxResult {
+    width: 95px;
+    height: 125px;
+    border: 2px dashed #D3C9EE;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAF8FF;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+#boxResult {
+    border: 2px solid #8A73C9; /* Bingkai ungu lilac solid jika sukses */
+    background-color: #F6F3FF;
+}
+
+#imgPreview, #imgResult {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.placeholder-icon {
+    font-size: 24px;
+    color: #C3B8E5;
+}
+
+/* Aturan Validasi Error (Dibuat ke arah Pink/Magenta soft agar kontras dengan Lilac) */
+label.error {
+    color: #E26D86;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 6px;
+    display: block;
+}
+
+.form-container input.error, 
+.form-container select.error,
+.form-container textarea.error {
+    border-color: #F7B9C7 !important;
+    background-color: #FFF5F7 !important;
+    box-shadow: none !important;
+}
+
+/* ==========================================================================
+   3. DESAIN TOMBOL AKSI TEMA LILAC & PASTEL MATCH
+   ========================================================================== */
+.action-buttons, .card-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+#btn, #btnReset, #btnCetak, #btnEdit {
+    border: none;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Tombol Kirim / Submit (Deep Lilac / Amethyst) */
+#btn {
+    background-color: #72629B;
+    color: #ffffff;
+    flex: 2;
+}
+
+#btn:hover {
+    background-color: #5E4E87;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(114, 98, 155, 0.3);
+}
+
+/* Tombol Reset (Soft Rose/Pink Pastel untuk pelengkap Lilac) */
+#btnReset {
+    background-color: #FCDDEC;
+    color: #A3527B;
+    flex: 1;
+}
+
+#btnReset:hover {
+    background-color: #F9CCE4;
+    transform: translateY(-2px);
+}
+
+/* Tombol Cetak Dokumen (Lilac Cerah Elegan) */
+#btnCetak {
+    background-color: #8A73C9;
+    color: #ffffff;
+    flex: 1.5;
+}
+
+#btnCetak:hover {
+    background-color: #765EBA;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(138, 115, 201, 0.3);
+}
+
+/* Tombol Edit Kembali (Soft Mint/Sage atau Lavender Pucat) */
+#btnEdit {
+    background-color: #E8E5F8;
+    color: #615386;
+    flex: 1;
+    border: 1px solid #D6CFF0;
+}
+
+#btnEdit:hover {
+    background-color: #D6CFF0;
+    transform: translateY(-2px);
+}
+
+#info {
+    color: #A696CD;
+    font-style: italic;
+    font-size: 12px;
+    margin-top: 12px;
+    display: block;
+    text-align: center;
+}
+
+/* ==========================================================================
+   4. STYLE KARTU RINGKASAN DATA (RESULT CARD LILAC)
+   ========================================================================== */
+.result-card {
+    border: 1px solid #E3DCF5;
+    border-radius: 16px;
+    background: #ffffff;
+    padding: 28px;
+    box-shadow: 0 4px 20px rgba(138, 115, 201, 0.03);
+}
+
+.card-header h3 {
+    margin: 0;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    color: #8A73C9;
+    font-size: 22px;
+}
+
+.card-sub-header {
+    text-align: center;
+    margin: 6px 0 20px 0;
+    font-size: 11px;
+    font-weight: 600;
+    color: #C0B5E0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ... (Sisa struktur .card-body dan @media print tetap aman mengikuti skrip dasar kamu dengan penyesuaian warna #8A73C9 saat dicetak) ... */
+.card-body { display: flex; gap: 24px; align-items: flex-start; margin-bottom: 15px; }
+.card-info-details { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+.info-row { display: flex; align-items: flex-start; font-size: 14px; line-height: 1.6; }
+.info-label { width: 140px; font-weight: 600; color: #72629B; flex-shrink: 0; }
+.info-colon { width: 20px; font-weight: 600; color: #72629B; flex-shrink: 0; }
+.info-value { color: #4A4458; font-weight: 500; word-break: break-word; }
+
+@media print {
+    @page { size: A4; margin: 20mm; }
+    body { background: #ffffff !important; margin: 0 !important; padding: 0 !important; }
+    body * { visibility: hidden; }
+    .form-container, #cardRingkasan, #printableArea, #printableArea * { visibility: visible; }
+    .form-container { position: absolute; left: 0; top: 0; width: 100% !important; max-width: 100% !important; padding: 0 !important; margin: 0 !important; box-shadow: none !important; border: none !important; background: transparent !important; }
+    .result-card { width: 100% !important; box-sizing: border-box; border: 2px solid #8A73C9 !important; border-radius: 12px !important; padding: 30px !important; margin: 0 auto !important; background-color: #ffffff !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    .card-header h3 { font-size: 26px !important; color: #8A73C9 !important; }
+    .card-body { display: flex !important; gap: 30px !important; }
+    #boxResult { width: 120px !important; height: 160px !important; border: 1px solid #72629B !important; }
+    .card-info-details p { margin: 10px 0 !important; font-size: 15px !important; }
+    .card-buttons { display: none !important; }
+}
